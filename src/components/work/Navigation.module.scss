@@ -1,0 +1,56 @@
+.navLink {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-m); // Matches Once UI styling
+  cursor: pointer;
+  text-decoration: none;
+
+  // The Image Container
+  .navGridImage {
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  // The Dark Overlay + Text Container
+  .navGridOverlay {
+    transition: opacity 0.3s ease;
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  // Hover States
+  &:hover {
+    .navGridImage {
+      transform: scale(1.05);
+    }
+
+    .navGridOverlay {
+      opacity: 1;
+    }
+  }
+}
+
+// Layout helper for the 2/3 span
+.largeSpan {
+  grid-column: span 2;
+  height: fit-content;
+  max-height: 45vh;
+}
+
+.smallSpan {
+  grid-column: span 1;
+  height: fit-content;
+  max-height: 45vh;
+}

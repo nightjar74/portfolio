@@ -1,0 +1,438 @@
+/* ─── Reset & Base ──────────────────────────────────────────────────────────── */
+
+.btn {
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+  white-space: nowrap;
+  user-select: none;
+  vertical-align: middle;
+  text-decoration: none;
+
+  /* Typography */
+  font-family: inherit;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  line-height: 1;
+
+  /* Interaction */
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  outline: none;
+  background: none;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease,
+    transform 0.1s ease,
+    opacity 0.15s ease;
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 3px var(--btn-focus-ring, rgba(79, 70, 229, 0.35));
+}
+
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+/* ─── Square ─────────────────────────────────────────────────────────────────── */
+.btn--square {
+  border-radius: 0;
+  padding: 0 22px;
+  height: 56px; /* Default to largest size for consistency */
+  width: 56px;
+  gap: 8px;
+}
+
+/* ─── Sizes ─────────────────────────────────────────────────────────────────── */
+
+.btn--xs {
+  font-size: 11px;
+  padding: 0 10px;
+  height: 28px;
+  gap: 4px;
+}
+
+.btn--sm {
+  font-size: 13px;
+  padding: 0 14px;
+  height: 34px;
+  gap: 5px;
+}
+
+.btn--md {
+  font-size: 14px;
+  padding: 0 18px;
+  height: 40px;
+  gap: 6px;
+}
+
+.btn--lg {
+  font-size: 15px;
+  padding: 0 22px;
+  height: 48px;
+  gap: 8px;
+}
+
+.btn--xl {
+  font-size: 17px;
+  padding: 0 68px;
+  height: 80px;
+  gap: 8px;
+}
+
+/* ─── Radius ────────────────────────────────────────────────────────────────── */
+
+.btn--radius-none {
+  border-radius: 0;
+}
+.btn--radius-sm {
+  border-radius: 4px;
+}
+.btn--radius-md {
+  border-radius: 8px;
+}
+.btn--radius-lg {
+  border-radius: 14px;
+}
+.btn--radius-full {
+  border-radius: 9999px;
+}
+
+/* ─── Full Width ─────────────────────────────────────────────────────────────── */
+
+.btn--full {
+  width: 100%;
+}
+
+/* ─── Icon Only ─────────────────────────────────────────────────────────────── */
+
+.btn--icon-only.btn--xs {
+  width: 28px;
+  padding: 0;
+}
+.btn--icon-only.btn--sm {
+  width: 34px;
+  padding: 0;
+}
+.btn--icon-only.btn--md {
+  width: 40px;
+  padding: 0;
+}
+.btn--icon-only.btn--lg {
+  width: 48px;
+  padding: 0;
+}
+.btn--icon-only.btn--xl {
+  width: 56px;
+  padding: 0;
+}
+
+/* ─── Icons ─────────────────────────────────────────────────────────────────── */
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btn-icon--only {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ─── Loading ────────────────────────────────────────────────────────────────── */
+
+.btn--loading {
+  cursor: wait;
+}
+
+.btn-spinner {
+  flex-shrink: 0;
+  animation: btn-spin 0.75s linear infinite;
+}
+
+.btn--xs .btn-spinner {
+  width: 12px;
+  height: 12px;
+}
+.btn--sm .btn-spinner {
+  width: 14px;
+  height: 14px;
+}
+.btn--md .btn-spinner {
+  width: 15px;
+  height: 15px;
+}
+.btn--lg .btn-spinner {
+  width: 17px;
+  height: 17px;
+}
+.btn--xl .btn-spinner {
+  width: 19px;
+  height: 19px;
+}
+
+.btn-spinner-track {
+  stroke: currentColor;
+  opacity: 0.25;
+}
+
+.btn-spinner-arc {
+  stroke: currentColor;
+}
+
+@keyframes btn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Color tokens ───────────────────────────────────────────────────────────── */
+/*
+  Each color exposes:
+    --btn-solid-bg / --btn-solid-bg-hover
+    --btn-solid-fg
+    --btn-outline-border / --btn-outline-border-hover
+    --btn-outline-fg / --btn-outline-bg-hover / --btn-outline-fg-hover
+    --btn-ghost-fg / --btn-ghost-bg-hover / --btn-ghost-fg-hover
+    --btn-soft-bg / --btn-soft-fg / --btn-soft-bg-hover
+    --btn-focus-ring
+*/
+
+.btn--primary {
+  --btn-solid-bg: #4f46e5;
+  --btn-solid-bg-hover: #4338ca;
+  --btn-solid-fg: #fff;
+  --btn-outline-border: #4f46e5;
+  --btn-outline-border-hover: #4338ca;
+  --btn-outline-fg: #4f46e5;
+  --btn-outline-bg-hover: #eef2ff;
+  --btn-outline-fg-hover: #4338ca;
+  --btn-ghost-fg: #4f46e5;
+  --btn-ghost-bg-hover: #eef2ff;
+  --btn-ghost-fg-hover: #4338ca;
+  --btn-soft-bg: #eef2ff;
+  --btn-soft-fg: #4338ca;
+  --btn-soft-bg-hover: #e0e7ff;
+  --btn-focus-ring: rgba(79, 70, 229, 0.35);
+}
+
+.btn--neutral {
+  --btn-solid-bg: #3f3f3f;
+  --btn-solid-bg-hover: #262626;
+  --btn-solid-fg: #fff;
+  --btn-outline-border: #000000;
+  --btn-outline-border-hover: #000000;
+  --btn-outline-fg: #3f3f3f;
+  --btn-outline-bg-hover: #f5f5f5;
+  --btn-outline-fg-hover: #171717;
+  --btn-ghost-fg: #525252;
+  --btn-ghost-bg-hover: #f5f5f5;
+  --btn-ghost-fg-hover: #171717;
+  --btn-soft-bg: #f5f5f5;
+  --btn-soft-fg: #3f3f3f;
+  --btn-soft-bg-hover: #e5e5e5;
+  --btn-focus-ring: rgba(115, 115, 115, 0.35);
+}
+
+.btn--success {
+  --btn-solid-bg: #16a34a;
+  --btn-solid-bg-hover: #15803d;
+  --btn-solid-fg: #fff;
+  --btn-outline-border: #16a34a;
+  --btn-outline-border-hover: #15803d;
+  --btn-outline-fg: #16a34a;
+  --btn-outline-bg-hover: #f0fdf4;
+  --btn-outline-fg-hover: #15803d;
+  --btn-ghost-fg: #16a34a;
+  --btn-ghost-bg-hover: #f0fdf4;
+  --btn-ghost-fg-hover: #15803d;
+  --btn-soft-bg: #dcfce7;
+  --btn-soft-fg: #15803d;
+  --btn-soft-bg-hover: #bbf7d0;
+  --btn-focus-ring: rgba(22, 163, 74, 0.35);
+}
+
+.btn--danger {
+  --btn-solid-bg: #dc2626;
+  --btn-solid-bg-hover: #b91c1c;
+  --btn-solid-fg: #fff;
+  --btn-outline-border: #dc2626;
+  --btn-outline-border-hover: #b91c1c;
+  --btn-outline-fg: #dc2626;
+  --btn-outline-bg-hover: #fef2f2;
+  --btn-outline-fg-hover: #b91c1c;
+  --btn-ghost-fg: #dc2626;
+  --btn-ghost-bg-hover: #fef2f2;
+  --btn-ghost-fg-hover: #b91c1c;
+  --btn-soft-bg: #fee2e2;
+  --btn-soft-fg: #b91c1c;
+  --btn-soft-bg-hover: #fecaca;
+  --btn-focus-ring: rgba(220, 38, 38, 0.35);
+}
+
+.btn--warning {
+  --btn-solid-bg: #d97706;
+  --btn-solid-bg-hover: #b45309;
+  --btn-solid-fg: #fff;
+  --btn-outline-border: #d97706;
+  --btn-outline-border-hover: #b45309;
+  --btn-outline-fg: #92400e;
+  --btn-outline-bg-hover: #fffbeb;
+  --btn-outline-fg-hover: #b45309;
+  --btn-ghost-fg: #92400e;
+  --btn-ghost-bg-hover: #fffbeb;
+  --btn-ghost-fg-hover: #b45309;
+  --btn-soft-bg: #fef3c7;
+  --btn-soft-fg: #92400e;
+  --btn-soft-bg-hover: #fde68a;
+  --btn-focus-ring: rgba(217, 119, 6, 0.35);
+}
+
+.btn--info {
+  --btn-solid-bg: #0284c7;
+  --btn-solid-bg-hover: #0369a1;
+  --btn-solid-fg: #fff;
+  --btn-outline-border: #0284c7;
+  --btn-outline-border-hover: #0369a1;
+  --btn-outline-fg: #0284c7;
+  --btn-outline-bg-hover: #f0f9ff;
+  --btn-outline-fg-hover: #0369a1;
+  --btn-ghost-fg: #0284c7;
+  --btn-ghost-bg-hover: #f0f9ff;
+  --btn-ghost-fg-hover: #0369a1;
+  --btn-soft-bg: #e0f2fe;
+  --btn-soft-fg: #0369a1;
+  --btn-soft-bg-hover: #bae6fd;
+  --btn-focus-ring: rgba(2, 132, 199, 0.35);
+}
+
+/* ─── Variants ───────────────────────────────────────────────────────────────── */
+
+/* Solid */
+.btn--solid {
+  background: var(--btn-solid-bg);
+  border-color: var(--btn-solid-bg);
+  color: var(--btn-solid-fg);
+}
+
+.btn--solid:hover:not(:disabled) {
+  background: var(--btn-solid-bg-hover);
+  border-color: var(--btn-solid-bg-hover);
+}
+
+/* Outline */
+.btn--outline {
+  background: transparent;
+  border-color: var(--btn-outline-border);
+  color: var(--btn-outline-fg);
+}
+
+.btn--outline:hover:not(:disabled) {
+  border-color: var(--btn-outline-border-hover);
+  background: var(--btn-outline-bg-hover);
+  color: var(--btn-outline-fg-hover);
+}
+
+/* Ghost */
+.btn--ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--btn-ghost-fg);
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: var(--btn-ghost-bg-hover);
+  color: var(--btn-ghost-fg-hover);
+}
+
+/* Soft */
+.btn--soft {
+  background: var(--btn-soft-bg);
+  border-color: transparent;
+  color: var(--btn-soft-fg);
+}
+
+.btn--soft:hover:not(:disabled) {
+  background: var(--btn-soft-bg-hover);
+}
+
+/* ─── ButtonGroup ────────────────────────────────────────────────────────────── */
+
+.btn-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-group--vertical {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Attached mode — flush buttons with shared borders */
+.btn-group--attached {
+  gap: 0;
+}
+
+.btn-group--attached > .btn {
+  border-radius: 0;
+}
+
+.btn-group--attached > .btn + .btn {
+  margin-left: -1.5px;
+}
+
+.btn-group--attached > .btn:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+.btn-group--attached > .btn:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+.btn-group--attached > .btn:first-child:last-child {
+  border-radius: 8px;
+}
+
+.btn-group--attached > .btn:hover,
+.btn-group--attached > .btn:focus-visible {
+  z-index: 1;
+}
+
+.btn-group--attached.btn-group--vertical {
+  flex-direction: column;
+}
+
+.btn-group--attached.btn-group--vertical > .btn {
+  border-radius: 0;
+}
+
+.btn-group--attached.btn-group--vertical > .btn + .btn {
+  margin-left: 0;
+  margin-top: -1.5px;
+}
+
+.btn-group--attached.btn-group--vertical > .btn:first-child {
+  border-radius: 8px 8px 0 0;
+}
+
+.btn-group--attached.btn-group--vertical > .btn:last-child {
+  border-radius: 0 0 8px 8px;
+}

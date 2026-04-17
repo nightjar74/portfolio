@@ -1,0 +1,52 @@
+.wrapper {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+  min-height: 100%;
+}
+
+.gridContainer {
+  display: grid;
+  /* Creates 4 equal columns */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  background: white;
+}
+
+.videoSlot {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
+  font-family: sans-serif;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .gridContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gridContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gridContainer {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+}

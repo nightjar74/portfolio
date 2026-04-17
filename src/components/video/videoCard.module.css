@@ -1,0 +1,122 @@
+/* ─── Card wrapper ──────────────────────────────────────────────────────── */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* flex: 0 0 calc(25% - 0.75rem); */
+  min-width: 0;
+  width: 100%;
+}
+
+.label {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-foreground);
+  padding: 0 0.25rem;
+}
+
+/* ─── Media container ───────────────────────────────────────────────────── */
+.media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-card-bg);
+  outline: none;
+
+  /* Subtle lift on hover */
+  transition:
+    transform 240ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    box-shadow 240ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.media:hover,
+.media:focus-visible {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 48px -8px rgba(0, 0, 0, 0.35);
+}
+
+.media:focus-visible {
+  box-shadow:
+    0 0 0 3px var(--color-accent),
+    0 20px 48px -8px rgba(0, 0, 0, 0.35);
+}
+
+/* ─── Thumbnail ─────────────────────────────────────────────────────────── */
+.thumbnail {
+  object-fit: cover;
+  transition: opacity 280ms ease;
+  z-index: 1;
+}
+
+/* When video preview is playing, fade out the thumbnail */
+.media:hover .thumbnail {
+  opacity: 0;
+}
+
+/* ─── Preview video ─────────────────────────────────────────────────────── */
+.preview {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 280ms ease;
+  pointer-events: none;
+}
+
+/* Show video once it's playing (driven by JS adding a class, or just via hover) */
+.media:hover .preview {
+  opacity: 1;
+}
+
+/* ─── Play overlay ──────────────────────────────────────────────────────── */
+.playOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.media:hover .playOverlay {
+  opacity: 1;
+}
+
+/* ─── Title pill ────────────────────────────────────────────────────────── */
+.titlePill {
+  position: absolute;
+  bottom: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 0.35rem 1rem;
+  white-space: nowrap;
+  font-family: var(--font-title);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #111;
+  pointer-events: none;
+  transition: transform 220ms ease;
+}
+
+.media:hover .titlePill {
+  transform: translateX(-50%) translateY(-2px);
+}
