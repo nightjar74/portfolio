@@ -17,6 +17,7 @@ export interface Client {
   tags: string[];
   imageSrc: string;
   imageAlt: string;
+  description: string;
   accent: string;
 }
 
@@ -28,6 +29,8 @@ const clients: Client[] = [
     tags: ["WordPress", "Animation", "Campaigns", "Illustration"],
     imageSrc: "/images/gallery/alpacas_ai.png",
     imageAlt: "Alpacas illustration",
+    description:
+      "A playful website and illustrated campaign for a family alpaca farm, bringing its herd and handmade fleece goods online.",
     accent: "#0072CE",
   },
   {
@@ -37,6 +40,8 @@ const clients: Client[] = [
     tags: ["Identity", "Editorial", "Print", "Digital"],
     imageSrc: "/images/gallery/green-valley-dairy-farm.png",
     imageAlt: "Tate Modern editorial project",
+    description:
+      "A fresh identity and editorial system for a local dairy, carried across packaging, print and its digital storefront.",
     accent: "#E63329",
   },
   {
@@ -46,6 +51,8 @@ const clients: Client[] = [
     tags: ["UX Research", "Design Systems", "Accessibility"],
     imageSrc: "/images/gallery/farm-ai.png",
     imageAlt: "Government Digital Service",
+    description:
+      "Research-led redesign of a farm shop and booking site, built on an accessible design system that is simple to maintain.",
     accent: "#00703C",
   },
 ];
@@ -236,7 +243,7 @@ export default function Showcase() {
             gap={2} /* style={{ backgroundColor: "black" }} */
           >
             {/* <TagList tags={client.tags} /> */}
-            <Paragraph text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+            <Paragraph text={client.description} />
             <Line />
             <ConfettiFireworks />
           </Flex>

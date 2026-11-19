@@ -170,18 +170,33 @@ export default function About() {
             paddingBottom="xl"
             gap="m"
           >
-            {/* Renders the image in portrait aspect ratio */}
-            {/*             <img
-              src={person.avatar}
-              alt={person.name}
-              style={{ width: "60%", height: "auto", display: "block" }}
-            /> */}
-            <div className="w-[80vw] h-fit sm:w-fit flex justify-center items-center">
-              <div className="w-74.5 h-74.5 bg-neutral-800 flex items-center justify-end flex-col">
-                <div className="w-24 h-24 bg-neutral-400 rounded-full " />
-                <div className="w-40 h-24 bg-neutral-400 rounded-t-full mt-3" />
-              </div>
-            </div>
+            {/* Default user silhouette (head and shoulders) */}
+            <Column
+              role="img"
+              aria-label={`${person.name} profile placeholder`}
+              width={18}
+              height={18}
+              horizontal="center"
+              vertical="end"
+              background="neutral-alpha-weak"
+              border="neutral-alpha-medium"
+              radius="l"
+              overflow="hidden"
+            >
+              <Column
+                width={6}
+                height={6}
+                radius="full"
+                background="neutral-alpha-strong"
+              />
+              <Column
+                width={10}
+                height={6}
+                marginTop="12"
+                topRadius="full"
+                background="neutral-alpha-strong"
+              />
+            </Column>
           </Column>
         )}
       </Flex>

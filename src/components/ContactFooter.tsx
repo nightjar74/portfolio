@@ -5,7 +5,7 @@ const ContactFooter = () => {
     <footer className="footer-container">
       {/* Main Heading */}
       <Text variant="display-strong-s" className="footer-heading" marginTop={4}>
-        Let's make something together.
+        Together, we herd ideas into reality.
       </Text>
 
       {/* Contact Button */}
